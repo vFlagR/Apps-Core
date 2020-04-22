@@ -31,7 +31,7 @@
         extport8: '33400'
         intport9: '33443/tcp'
         extport9: '33443'
-        image: 'horjulf/plex_autoscan'
+        image: 'vflagr/docker-plex_autoscan'
 
     # CORE (MANDATORY) ############################################################
     - name: 'Including cron job'
