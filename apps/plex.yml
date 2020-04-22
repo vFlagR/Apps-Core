@@ -200,6 +200,7 @@
           PLEX_AUTOSCAN_LOGLEVEL: 'DEBUG'
           USE_DOCKER: 'true'
           USE_SUDO: 'true'
+          GOOGLE_DRIVE_FILE_PATHS: ["GoLangV2/movies", "GoLangV2/tv"]
 
         purge_networks: yes
         networks:
