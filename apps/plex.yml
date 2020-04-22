@@ -79,16 +79,14 @@
           - '/tmp:/tmp'
           - '/opt/transcodes:/transcode'
           - '/dev/shm:/ram_transcode'
+          - '/mnt/unionfs/tv/:/data/tvshows'
+          - '/mnt/unionfs/movies/:/data/movies'
 
     - name: 'Establish Key Variables'
       set_fact:
         default_env:
           UID: '1000'
           GID: '1000'
-          PLEX_AUTOSCAN_CONFIG: /plex_autoscan/config.json
-          PLEX_AUTOSCAN_QUEUEFILE: /plex_autoscan/queue.db
-          PLEX_AUTOSCAN_LOGFILE: /plex_autoscan/plex_autoscan.log
-          PLEX_AUTOSCAN_LOGLEVEL: DEBUG
 
     - name: Check Preferences.xml exists
       stat:
@@ -200,6 +198,13 @@
           PLEX_GID: '1000'
           PLEX_CLAIM: '{{claim.stdout}}'
           ADVERTISE_IP: '{{customConnections}}'
+          PLEX_AUTOSCAN_CONFIG: /plex_autoscan/config.json
+          PLEX_AUTOSCAN_QUEUEFILE: /plex_autoscan/queue.db
+          PLEX_AUTOSCAN_LOGFILE: /plex_autoscan/plex_autoscan.log
+          PLEX_AUTOSCAN_LOGLEVEL: DEBUG
+          USE_DOCKER: true
+          USE_SUDO: true
+
         purge_networks: yes
         networks:
           - name: plexguide
