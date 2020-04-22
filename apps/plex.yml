@@ -31,7 +31,7 @@
         extport8: '33400'
         intport9: '33443/tcp'
         extport9: '33443'
-        image: 'plexinc/pms-docker:latest'
+        image: 'horjulf/plex_autoscan'
 
     # CORE (MANDATORY) ############################################################
     - name: 'Including cron job'
@@ -75,6 +75,7 @@
           - '{{path.stdout}}:{{path.stdout}}'
           - '/mnt:/mnt'
           - '/opt/appdata/{{pgrole}}/database:/config'
+          - '/opt/appdata/{{pgrole}}/plex_autoscan/config:/plex_autoscan'
           - '/tmp:/tmp'
           - '/opt/transcodes:/transcode'
           - '/dev/shm:/ram_transcode'
@@ -84,6 +85,10 @@
         default_env:
           UID: '1000'
           GID: '1000'
+          PLEX_AUTOSCAN_CONFIG: /plex_autoscan/config.json
+          PLEX_AUTOSCAN_QUEUEFILE: /plex_autoscan/queue.db
+          PLEX_AUTOSCAN_LOGFILE: /plex_autoscan/plex_autoscan.log
+          PLEX_AUTOSCAN_LOGLEVEL: DEBUG
 
     - name: Check Preferences.xml exists
       stat:
