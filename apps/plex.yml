@@ -75,7 +75,7 @@
           - '{{path.stdout}}:{{path.stdout}}'
           - '/mnt:/mnt'
           - '/opt/appdata/{{pgrole}}/database:/config'
-          - '/opt/appdata/{{pgrole}}/plex_autoscan/config:/plex_autoscan'
+          - '/opt/appdata/{{pgrole}}/plex_autoscan/config/:/plex_autoscan'
           - '/tmp:/tmp'
           - '/opt/transcodes:/transcode'
           - '/dev/shm:/ram_transcode'
