@@ -1,4 +1,4 @@
 plexinc/pms-docker:latest
 plexinc/pms-docker:beta
 horjulf/plex_autoscan
-vflagr/docker-plex_autoscan
+vflagr/docker-plex_autoscan:latest
